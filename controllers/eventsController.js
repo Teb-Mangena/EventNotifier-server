@@ -72,7 +72,7 @@ See you there!`;
         <p><strong>🕒 Opens:</strong> ${formattedOpening}</p>
         <p><strong>🕒 Closes:</strong> ${formattedClosing}</p>
         <p style="margin-top: 20px;">
-          <a href="https://yourappdomain.com/events/${event._id}" 
+          <a href="${process.env.FRONTEND_URL}/events/${event._id}" 
              style="background: #007BFF; color: #fff; padding: 10px 15px; text-decoration: none; border-radius: 5px; display: inline-block;">
             View Event Details
           </a>
