@@ -18,14 +18,14 @@ const OpportunitySchema = new mongoose.Schema(
       type: String,
       required: true,
       trim: true,
-      enum: ['Education', 'Health', 'Environment', 'Community']
+      enum: ['Bursary', 'In-Service', 'Jobs', 'Heckathons']
     },
 
     location: {
       type: String,
       required: true,
       trim: true,
-      enum: ['On-site', 'Remote', 'Hybrid']
+      enum: ['On-site', 'Remote', 'Hybrid','N/A']
     },
 
     commitment: {
