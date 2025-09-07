@@ -7,6 +7,7 @@ import "dotenv/config";
 import userRoutes from "./routes/userRoutes.js";
 import eventRoute from "./routes/eventsRoute.js";
 import oppoRoute from "./routes/opportunityRoutes.js";
+import register from "./routes/eventRegistRoutes.js";
 
 // create express app
 const app = express();
@@ -25,6 +26,7 @@ app.use(morgan('dev'));
 app.use('/api/users',userRoutes);
 app.use('/api/events',eventRoute);
 app.use('/api/opportunities',oppoRoute);
+app.use('/api/event-register',register);
 
 // connect to DB
 mongoose.connect(MONGO_URI)
