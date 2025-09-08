@@ -102,9 +102,9 @@ See you there!`;
 // Get all events (with basic pagination)
 export const getEvents = async (req, res) => {
   try {
-    const page  = parseInt(req.query.page  ) || 1;
-    const limit = parseInt(req.query.limit ) || 20;
-    const skip  = (page - 1) * limit;
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 20;
+    const skip = (page - 1) * limit;
 
     const total = await Event.countDocuments();
     const events = await Event.find()
@@ -112,7 +112,12 @@ export const getEvents = async (req, res) => {
       .skip(skip)
       .limit(limit);
 
-    res.json({ total, page, limit, data: events });
+    res.json({ 
+      total, 
+      page, 
+      totalPages: Math.ceil(total / limit),
+      data: events 
+    });
   } catch (err) {
     console.error('getEvents error:', err);
     res.status(500).json({ message: 'Could not fetch events' });
